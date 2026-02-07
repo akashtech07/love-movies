@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Jovita ❤️</title>
+
+<style>
+body{
+margin:0;
+font-family:Segoe UI;
+background:radial-gradient(circle,#ff2a68,#000);
+color:white;
+text-align:center;
+overflow:hidden;
+}
+
+.scene{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+.glow{
+font-size:45px;
+text-shadow:0 0 25px pink;
+}
+
+.hero{
+width:260px;
+border-radius:25px;
+box-shadow:0 0 30px pink;
+margin:15px;
+}
+
+button{
+padding:12px 30px;
+border:none;
+border-radius:25px;
+background:#ff0055;
+color:white;
+font-size:18px;
+margin:10px;
+cursor:pointer;
+}
+
+.flowers img{
+width:180px;
+margin:15px;
+border-radius:20px;
+box-shadow:0 0 20px pink;
+cursor:pointer;
+transition:.3s;
+}
+
+.flowers img:hover{
+transform:scale(1.1);
+}
+
+.card{
+display:none;
+background:rgba(255,255,255,.2);
+padding:25px;
+border-radius:20px;
+margin:15px;
+max-width:600px;
+font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+<source src="assets/song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1 -->
+<div class="scene" id="page1">
+
+<h1 class="glow">Do you love me, Jovita? ❤️</h1>
+
+<img src="assets/photo.jpg" class="hero">
+
+<button onclick="start()">YES</button>
+<button id="no">NO</button>
+
+</div>
+
+<!-- PAGE 2 -->
+<div class="scene" id="page2" style="display:none">
+
+<h1 class="glow">🌹 Happy Rose Day My Love 🌹</h1>
+
+<div class="flowers">
+
+<img src="https://images.unsplash.com/photo-1496062031456-07b8f162a322?auto=format&fit=crop&w=400&q=80" onclick="openLetters()">
+
+<img src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=400&q=80" onclick="openLetters()">
+
+<img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=400&q=80" onclick="openLetters()">
+
+</div>
+
+</div>
+
+<!-- PAGE 3 -->
+<div class="scene" id="page3" style="display:none">
+
+<h1 class="glow">Choose My Letter 💌</h1>
+
+<button onclick="show(1)">Letter 1</button>
+<button onclick="show(2)">Letter 2</button>
+<button onclick="show(3)">Letter 3</button>
+
+<div id="l1" class="card">
+Jovita… I didn’t fall in love with you — I walked into it knowing every risk and still choosing you. You are my peace, my forever ❤️
+</div>
+
+<div id="l2" class="card">
+No matter how many fights or tears, I promise to hold your hand always. Loving you is the easiest thing I’ve ever done 😘
+</div>
+
+<div id="l3" class="card">
+If I had a thousand lives, I’d find you in every one. You’re not just my girlfriend — you are my whole universe 💞
+</div>
+
+</div>
+
+<script>
+let no=document.getElementById("no");
+
+no.onmouseover=()=>{
+no.style.position="absolute";
+no.style.left=Math.random()*300+"px";
+no.style.top=Math.random()*300+"px";
+}
+
+function start(){
+document.getElementById("music").play();
+page1.style.display="none";
+page2.style.display="flex";
+}
+
+function openLetters(){
+page2.style.display="none";
+page3.style.display="flex";
+}
+
+function show(n){
+["l1","l2","l3"].forEach(id=>{
+document.getElementById(id).style.display="none";
+});
+document.getElementById("l"+n).style.display="block";
+}
+</script>
+
+</body>
+</html>
